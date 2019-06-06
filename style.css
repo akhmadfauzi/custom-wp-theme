@@ -12,7 +12,95 @@ Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-rea
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
 */
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
 
-body {
-  background: #21759b;
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 960px;
+}
+
+.post{
+  padding: 5px;
+  margin: 5px;
+}
+
+.post-title{
+  font-size: 1.5em;
+}
+
+.featured-image img{
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+}
+.img-responsive{
+  max-width: 100% ;
+  max-height: 100% ;
+  width: auto;
+  height: auto;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+
+/*--------------------------------------------------------------
+## Captions
+--------------------------------------------------------------*/
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+.post-content img{
+  max-width: 100%;
+  width: auto;
+}
+
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }

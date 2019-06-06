@@ -1,44 +1,52 @@
-<!DOCTYPE html>
-<html>
+    <?php get_header() ?>
 
-<head>
-    <meta charset="<?php bloginfo('charset'); ?>">
-    <title><?php wp_title('|', true, 'right'); ?></title>
-    <link rel="stylesheet" href="<?php echo esc_url(get_stylesheet_uri()); ?>" type="text/css" />
-    <?php wp_head(); ?>
-</head>
+    <div class="wrapper">
+        <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-<body>
-    <h1><?php bloginfo('name'); ?></h1>
-    <h2><?php bloginfo('description'); ?></h2>
+                <div class="post">
+                    <div class="post-title">
+                        <a href="<?php the_permalink(); ?>">
+                            <h3><?php the_title(); ?></h3>
+                        </a>
+                    </div>
 
-    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+                    <?php if (has_post_thumbnail()) : ?>
+                        <div class="featured-image">
+                            <?php the_post_thumbnail(); ?>
+                        </div>
 
-            <h3><?php the_title(); ?></h3>
+                    <?php endif; ?>
+                    <div class="post-excerpt">
+                        <?php the_excerpt(); ?>
 
-            <?php the_content(); ?>
-            <?php wp_link_pages(); ?>
-            <?php edit_post_link(); ?>
+                    </div>
+                    <div class="post-utility">
+                        <?php wp_link_pages(); ?>
+                        <?php edit_post_link(); ?>
+                    </div>
+                </div>
 
-        <?php endwhile; ?>
+            <?php endwhile; ?>
 
-        <?php
-        if (get_next_posts_link()) {
-            next_posts_link();
-        }
-        ?>
-        <?php
-        if (get_previous_posts_link()) {
-            previous_posts_link();
-        }
-        ?>
+            <div class="pagination">
+                <?php
+                if (get_next_posts_link()) {
+                    next_posts_link();
+                }
+                ?>
+                <?php
+                if (get_previous_posts_link()) {
+                    previous_posts_link();
+                }
+                ?>
+            </div>
 
-    <?php else : ?>
 
-        <p>No posts found. :(</p>
+        <?php else : ?>
 
-    <?php endif; ?>
-    <?php wp_footer(); ?>
-</body>
+            <p>No posts found. :(</p>
 
-</html>
+        <?php endif; ?>
+    </div>
+
+    <?php get_footer(); ?>
