@@ -1,6 +1,7 @@
     <?php get_header() ?>
 
     <div class="wrapper">
+        this is index get called
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
                 <div class="post">
@@ -12,7 +13,7 @@
 
                     <?php if (has_post_thumbnail()) : ?>
                         <div class="featured-image">
-                            <?php the_post_thumbnail(); ?>
+                            <?php the_post_thumbnail('large'); ?>
                         </div>
 
                     <?php endif; ?>

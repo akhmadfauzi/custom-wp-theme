@@ -1,6 +1,7 @@
 <?php get_header() ?>
 
 <div class="wrapper">
+this is front page get called
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
             <div class="post">

@@ -10,7 +10,20 @@
 
 <body>
     <nav>
-    <?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
+        <?php
+        wp_nav_menu(array('theme_location' => 'header-menu'));
+
+        if (is_front_page()) {
+            echo "Front page";
+        } else if (is_home()) {
+            echo "it is home";
+        } else {
+            echo "something else";
+        }
+
+        ?>
+
+
     </nav>
-    <h1><a href="<?php echo home_url( '/' )?>"><?php bloginfo('name'); ?></a> </h1>
+    <h1><a href="<?php echo home_url('/') ?>"><?php bloginfo('name'); ?></a> </h1>
     <h2><?php bloginfo('description'); ?></h2>
